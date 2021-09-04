@@ -1,0 +1,10 @@
+If @OSArch = "x64" And Not @AutoItX64 Then
+  Select
+   Case StringInStr($s_key, "HKLM32\SOFTWARE")
+    $s_key = StringReplace($s_key, "HKLM32\SOFTWARE", "HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node")
+   Case StringInStr($s_key, "HKLM\SOFTWARE")
+    $s_key = StringReplace($s_key, "HKLM\SOFTWARE", "HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node")
+   Case StringInStr($s_key, "HKEY_LOCAL_MACHINE\SOFTWARE")
+    $s_key = StringReplace($s_key, "HKEY_LOCAL_MACHINE\SOFTWARE", "HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node")
+  Endselect
+EndIf
